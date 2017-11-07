@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WorkspaceViewState version="1.0">
+  <ExpandedNodes>
+    <Node path="OM.4pw" type="pm/main-project"/>
+    <Node path="OM.4pw/Library" type="pm/group"/>
+    <Node path="OM.4pw/Library/OM" type="pm/application"/>
+  </ExpandedNodes>
+  <OpenDocuments/>
+  <CurrentDocument filePath="" module="mod-wp"/>
+</WorkspaceViewState>

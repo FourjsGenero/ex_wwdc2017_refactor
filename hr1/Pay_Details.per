@@ -1,0 +1,59 @@
+SCHEMA hr
+
+LAYOUT (TEXT="Employee Details")
+GRID
+{
+Start Date             [f01       ]
+Position               [f02                 ]
+Tax Number             [f03                 ]
+Salary/Wage            [f04       ][f05]
+
+<G g1                    > 
+ <T t1                  >
+ [p01       ][p02       ]
+ [p01       ][p02       ]
+ [p01       ][p02       ]
+ [p01       ][p02       ]
+ 
+<G g2                         ><G g3                        >
+ <T t2                       >  <T t3                      >
+ [c01       ][c02   ][c03    ]  [d01       ][d02   ][d03   ] 
+ [c01       ][c02   ][c03    ]  [d01       ][d02   ][d03   ] 
+ [c01       ][c02   ][c03    ]  [d01       ][d02   ][d03   ]  
+ [c01       ][c02   ][c03    ]  [d01       ][d02   ][d03   ] 
+                     [f06    ]                      [f07   ]
+}
+END --GRID
+END --LAYOUT
+
+TABLES
+employee, paysummary, sickleave, annualleave
+
+ATTRIBUTES
+DATEEDIT f01 = employee.startdate;
+f02 = employee.position;
+f03 = employee.taxnumber;
+f04 = employee.base;
+f05 = employee.basetype;
+
+GROUP g1 : TEXT="Pay Summary";
+DATEEDIT p01 = paysummary.pay_date, TITLE="Date";
+p02 = paysummary.pay_amount, TITLE="Amount";
+
+GROUP g2 : TEXT="Sick Leave";
+DATEEDIT c01 = sickleave.sick_date, TITLE="Date";
+c02 = sickleave.sick_adjustment, TITLE="Adjustment";
+c03 = sickleave.sick_runningbalance, TITLE="Balance";
+f06 = employee.sick_balance;
+
+GROUP g3 : TEXT="Annual Leave";
+DATEEDIT d01 = annualleave.annual_date, TITLE="Date";
+d02 = annualleave.annual_adjustment, TITLE="Adjustment";
+d03 = annualleave.annual_runningbalance, TITLE="Balance";
+f07 = employee.annual_balance;
+
+
+INSTRUCTIONS
+SCREEN RECORD sick_scr(sick_date, sick_adjustment, sick_runningbalance);
+SCREEN RECORD annual_scr(annual_date, annual_adjustment, annual_runningbalance);
+SCREEN RECORD pay_scr(pay_date, pay_amount);

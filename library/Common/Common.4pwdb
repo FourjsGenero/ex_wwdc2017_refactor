@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WorkspaceDatabase fileContentsEncoding="UTF-8" version="2.0">
+<File m="Common" n="Common.4gl" ts="20170322155713000">
+<Fct c="10" el="315" l="308" n="ts4(p_tabs INTEGER)" t="F">
+<Call c="10" l="313" n="tab_stop" t="F"/>
+</Fct>
+<Fct c="17" el="172" l="156" n="str_Hash(p_algorithm STRING,p_string STRING)" t="F"/>
+<Fct c="10" el="339" l="332" n="ts8(p_tabs INTEGER)" t="F">
+<Call c="10" l="337" n="tab_stop" t="F"/>
+</Fct>
+<Fct c="18" el="365" l="358" n="tab_stop(p_tabs INTEGER,p_size INTEGER)" t="F"/>
+<Fct c="17" el="379" l="374" n="_(p_string STRING)" t="F"/>
+<Fct c="17" el="55" l="34" n="db_Transact(p_transact STRING)" t="F">
+<Call c="20" l="44" n="db_start_transaction" t="F"/>
+<Call c="20" l="46" n="db_finish_transaction" t="F"/>
+<Call c="20" l="48" n="db_finish_transaction" t="F"/>
+</Fct>
+<Fct c="17" el="214" l="188" n="str_Split(p_str STRING,p_sep CHAR(1))" t="F"/>
+<Fct c="17" el="99" l="72" n="db_Open(p_database STRING)" t="F"/>
+<Fct c="17" el="128" l="119" n="db_Connect(p_connect STRING,p_user STRING,p_password STRING)" t="F"/>
+<Fct c="17" el="258" l="233" n="str_HasOnly(p_pattern STRING,p_string STRING)" t="F"/>
+<Fct c="17" el="291" l="284" n="sp(p_spaces INTEGER)" t="F"/>
+</File>
+<File m="Common_Unit" n="Common_Unit.4gl" ts="20170331094554459">
+<Dep t="Common.4gl"/>
+<Fct c="1" el="18" l="14" n="main()" t="F">
+<Call c="8" l="16" n="Run" t="F"/>
+</Fct>
+<Fct c="18" el="46" l="44" n="Teardown()" t="F"/>
+<Fct c="18" el="38" l="36" n="Setup()" t="F"/>
+<Fct c="17" el="30" l="25" n="Run(p_request STRING)" t="F"/>
+</File>
+</WorkspaceDatabase>

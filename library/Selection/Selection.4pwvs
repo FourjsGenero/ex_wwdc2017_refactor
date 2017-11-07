@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WorkspaceViewState version="1.0">
+  <ExpandedNodes>
+    <Node path="Selection.4pw" type="pm/main-project"/>
+    <Node path="Selection.4pw/_Imports" type="pm/group"/>
+    <Node path="Selection.4pw/Library" type="pm/group"/>
+    <Node path="Selection.4pw/Library/Selection" type="pm/application"/>
+  </ExpandedNodes>
+  <OpenDocuments>
+    <Document container="true" filePath="Selection_Unit.4gl" locator="1:1" module="mod-ce3">
+      <Data name="8" value="UTF-8"/>
+    </Document>
+    <Document container="true" filePath="Selection_Search.per" locator="10:59" module="mod-ce3">
+      <Data name="8" value="UTF-8"/>
+    </Document>
+    <Document container="true" filePath="Selection_Find.per" locator="10:40" module="mod-ce3">
+      <Data name="8" value="UTF-8"/>
+    </Document>
+    <Document container="true" filePath="Selection.4gl" locator="289:24" module="mod-ce3">
+      <Data name="8" value="UTF-8"/>
+    </Document>
+  </OpenDocuments>
+  <CurrentDocument filePath="Selection.4gl" module="mod-ce3"/>
+</WorkspaceViewState>

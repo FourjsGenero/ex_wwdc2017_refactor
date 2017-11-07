@@ -1,0 +1,78 @@
+SCHEMA hr
+
+LAYOUT (TEXT="Employee Maintenance")
+FOLDER
+PAGE (TEXT="Name")
+GRID
+{
+ Employee Number           [f01     ]
+ First Name                [f02                          ]
+ Middle Name(s)            [f03                          ]
+ Surname                   [f04                          ]
+ Preferred Name            [f05                          ]
+ Title                     [f06]
+}
+END # GRID
+END # PAGE
+
+PAGE (TEXT="Personal")
+GRID
+{
+ Birth Date                [f07       ]
+ Gender                    [x]
+}
+END # GRID
+END # PAGE
+PAGE (TEXT="Address")
+GRID
+{
+ 
+ Address                   [f11                                  ]
+                           [                                     ]
+                           [                                     ]
+                           [                                     ]
+ Country                   [f16               ]
+ Postcode                  [f15       ]
+}
+END # GRID
+END # PAGE
+PAGE (TEXT="Phone")
+GRID
+{
+ Phone Number              [f17               ]
+ Mobile Number             [f18               ]
+}
+END # GRID
+END # PAGE
+END # FOLDER
+END # LAYOUT
+
+TABLES
+  employee
+
+ATTRIBUTES
+
+f01 = employee.employee_no, NOENTRY;
+f02 = employee.firstname;
+f03 = employee.middlenames;
+f04 = employee.surname;
+f05 = employee.preferredname;
+f06 = employee.title;
+
+RADIOGROUP x = employee.gender, NOT NULL, ITEMS=(("M","Male"),("F","Female")), ORIENTATION=HORIZONTAL;
+DATEEDIT f07 = employee.birthdate;
+
+TEXTEDIT f11 = formonly.address;
+PHANTOM employee.address1;
+PHANTOM employee.address2;
+PHANTOM employee.address3;
+PHANTOM employee.address4;
+
+f15 = formonly.postcode;
+COMBOBOX f16 = employee.country, NOT NULL, ITEMS=("Australia","Malaysia","New Zealand", "Singapore", "Thailand");
+
+f17 = employee.phone;
+f18 = employee.mobile;
+
+INSTRUCTIONS
+SCREEN RECORD emp_scr(employee_no THRU mobile);

@@ -1,0 +1,28 @@
+SCHEMA hr
+
+LAYOUT(TEXT="Employees")
+  GRID ctn_main
+  {
+   <T t1                                                                >
+    [f0  |f1                            |f2                            ] 
+    [f0  |f1                            |f2                            ]
+    [f0  |f1                            |f2                            ]
+    [f0  |f1                            |f2                            ]
+    [f0  |f1                            |f2                            ]
+    [f0  |f1                            |f2                            ]
+    [f0  |f1                            |f2                            ]
+    [f0  |f1                            |f2                            ]
+    [f0  |f1                            |f2                            ]
+    [f0  |f1                            |f2                            ]
+  }
+  END --GRID
+END --LAYOUT
+
+ATTRIBUTES
+TABLE t1 : t1, DOUBLECLICK=accept, STYLE="normal";
+f0 = formonly.employee_no, TITLE="No";
+f1 = formonly.surname, TITLE="Surname";
+f2 = formonly.firstname, TITLE="FirstName";
+
+INSTRUCTIONS
+SCREEN RECORD emp_list[10](employee_no THRU firstname);

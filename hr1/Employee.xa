@@ -1,0 +1,193 @@
+<?xml version='1.0' encoding='windows-1252'?>
+<api_class name="Employee" package="hr1" top="../" next="hr0_dtl_UI" prev="Emp_View">
+  <TYPE name="t_Employee" type="RECORD R8">
+    <RECORD>
+      <member name="employee_no" type="INTEGER"/>
+      <member name="firstname" type="CHAR(30)"/>
+      <member name="middlenames" type="CHAR(30)"/>
+      <member name="surname" type="CHAR(30)"/>
+      <member name="preferredname" type="CHAR(30)"/>
+      <member name="title_id" type="CHAR(5)"/>
+      <member name="birthdate" type="DATE"/>
+      <member name="gender" type="CHAR(1)"/>
+      <member name="address1" type="CHAR(40)"/>
+      <member name="address2" type="CHAR(40)"/>
+      <member name="address3" type="CHAR(40)"/>
+      <member name="address4" type="CHAR(40)"/>
+      <member name="country_id" type="CHAR(3)"/>
+      <member name="postcode" type="CHAR(10)"/>
+      <member name="phone" type="CHAR(20)"/>
+      <member name="mobile" type="CHAR(20)"/>
+      <member name="email" type="CHAR(40)"/>
+      <member name="startdate" type="DATE"/>
+      <member name="position" type="CHAR(20)"/>
+      <member name="taxnumber" type="CHAR(20)"/>
+      <member name="base" type="DECIMAL(10,2)"/>
+      <member name="basetype" type="CHAR(3)"/>
+      <member name="sick_balance" type="DECIMAL(5,1)"/>
+      <member name="annual_balance" type="DECIMAL(5,1)"/>
+    </RECORD>
+  </TYPE>
+  <TYPE name="t_PaySummary" type="RECORD R10">
+    <RECORD>
+      <member name="employee_no" type="INTEGER"/>
+      <member name="pay_date" type="DATE"/>
+      <member name="pay_amount" type="DECIMAL(10,2)"/>
+    </RECORD>
+  </TYPE>
+  <TYPE name="t_AnnualLeave" type="RECORD R12">
+    <RECORD>
+      <member name="employee_no" type="INTEGER"/>
+      <member name="annual_date" type="DATE"/>
+      <member name="annual_adjustment" type="DECIMAL(11,2)"/>
+      <member name="annual_runningbalance" type="DECIMAL(11,2)"/>
+    </RECORD>
+  </TYPE>
+  <TYPE name="t_SickLeave" type="RECORD R14">
+    <RECORD>
+      <member name="employee_no" type="INTEGER"/>
+      <member name="sick_date" type="DATE"/>
+      <member name="sick_adjustment" type="DECIMAL(11,2)"/>
+      <member name="sick_runningbalance" type="DECIMAL(11,2)"/>
+    </RECORD>
+  </TYPE>
+  <TYPE name="t_Line" type="RECORD R16">
+    <RECORD>
+      <member name="employee_no" type="INTEGER"/>
+      <member name="employee_surname" type="CHAR(30)"/>
+      <member name="employee_firstname" type="CHAR(30)"/>
+      <member name="employee_position" type="CHAR(20)"/>
+    </RECORD>
+  </TYPE>
+  <TYPE name="t_List" type="DYNAMIC ARRAY OF Employee.t_Line" type_array="DYNAMIC ARRAY OF " type_name="t_Line"/>
+  <TYPE name="t_View" type="RECORD R18">
+    <RECORD>
+      <member name="employee" type="Employee.t_Employee" type_name="t_Employee"/>
+      <member name="pay" type="DYNAMIC ARRAY OF Employee.t_PaySummary" type_array="DYNAMIC ARRAY OF " type_name="t_PaySummary"/>
+      <member name="annual" type="DYNAMIC ARRAY OF Employee.t_AnnualLeave" type_array="DYNAMIC ARRAY OF " type_name="t_AnnualLeave"/>
+      <member name="sick" type="DYNAMIC ARRAY OF Employee.t_SickLeave" type_array="DYNAMIC ARRAY OF " type_name="t_SickLeave"/>
+    </RECORD>
+  </TYPE>
+  <VARIABLE name="rView" type="Employee.t_View" type_name="t_View"/>
+  <VARIABLE name="aList" type="Employee.t_List" type_name="t_List"/>
+  <VARIABLE name="error" type="STRING"/>
+  <function name="Valid_PostCode_Country_Combination"/>
+  <function name="Valid_Record"/>
+  <function name="Valid_Field">
+    <api_param name="p_field" type="STRING"/>
+  </function>
+  <function name="Valid_Email"/>
+  <function name="Valid_PhoneNumber">
+    <api_param name="p_phone" type="STRING"/>
+  </function>
+  <function name="Valid_Mobile"/>
+  <function name="Valid_Phone"/>
+  <function name="Valid_Country_ID"/>
+  <function name="Valid_PostCode"/>
+  <function name="Valid_Address1"/>
+  <function name="Valid_Birthdate"/>
+  <function name="Valid_Gender"/>
+  <function name="Valid_Title_ID"/>
+  <function name="Valid_Surname"/>
+  <function name="Valid_FirstName"/>
+  <function name="SickLeave_Balance">
+    <api_synopsis> Update Sick Leave Balance</api_synopsis>
+    <api_usage>
+      <pre> call Employee.SickLeave_Balance()</pre>
+    </api_usage>
+  </function>
+  <function name="AnnualLeave_Balance">
+    <api_synopsis> Update Annual Leave Balance</api_synopsis>
+    <api_usage>
+      <pre> call Employee.AnnualLeave_Balance()</pre>
+    </api_usage>
+  </function>
+  <function name="Base_Set">
+    <api_synopsis> Set base salary or wage</api_synopsis>
+    <api_usage>
+      <pre> call Employee.Base_Set()</pre>
+    </api_usage>
+  </function>
+  <function name="Update">
+    <api_synopsis> Update related data for current employee</api_synopsis>
+    <api_usage>
+      <pre>
+ call Employee.Update()</pre>
+    </api_usage>
+    <RETURNS type="STRING"/>
+  </function>
+  <function name="Insert">
+    <api_synopsis> Insert related data for current employee</api_synopsis>
+    <api_usage>
+      <pre> call Employee.Insert()</pre>
+    </api_usage>
+    <RETURNS type="STRING"/>
+  </function>
+  <function name="Delete">
+    <api_synopsis> Delete related data for current employee</api_synopsis>
+    <api_usage>
+      <pre> define p_employeeNo like employee.employee_no
+ call Employee.Get(p_employeeNo)</pre>
+    </api_usage>
+    <api_param name="p_employeeNo" type="INTEGER"/>
+    <RETURNS type="STRING"/>
+  </function>
+  <function name="Put">
+    <api_synopsis> Put related data for current employee</api_synopsis>
+    <api_usage>
+      <pre> define p_employeeNo like employee.employee_no
+ ...
+ call Employee.Get(p_employeeNo)</pre>
+    </api_usage>
+    <RETURNS type="STRING"/>
+  </function>
+  <function name="Get">
+    <api_synopsis> Get related data for an employee number</api_synopsis>
+    <api_usage>
+      <pre> define p_employeeNo like employee.employee_no
+ call Employee.Get(p_employeeNo)</pre>
+    </api_usage>
+    <api_param name="p_employeeNo" type="INTEGER"/>
+  </function>
+  <function name="New">
+    <api_synopsis> Setup defaults for a New employee</api_synopsis>
+    <api_usage>
+      <pre> call Employee.New()</pre>
+    </api_usage>
+  </function>
+  <function name="ListItem_Key">
+    <api_synopsis> Return the key for an absolute list item in the list</api_synopsis>
+    <api_returnType>like employee.employee_no</api_returnType>
+    <return>Primary key - Employee number</return>
+    <api_usage>
+      <pre> define p_employeeNo like employee.employee_no
+ ...
+ let p_employeeNo = Employee.ListItem_Key(arr_curr())</pre>
+    </api_usage>
+    <api_param name="p_row" type="INTEGER">Item number in list</api_param>
+    <RETURNS type="INTEGER"/>
+  </function>
+  <function name="List_Load">
+    <api_synopsis> Load the current page in list view</api_synopsis>
+    <api_usage>
+      <pre> ...
+ call Employee.List_Load(fgl_dialog_getBufferStart(), fgl_dialog_getBufferLength())</pre>
+    </api_usage>
+    <api_param name="p_start" type="INTEGER">Starting absolute record</api_param>
+    <api_param name="p_len" type="INTEGER">Number of records</api_param>
+    <RETURNS type="INTEGER"/>
+  </function>
+  <function name="Select">
+    <api_synopsis> Set query to select sorted list of records and open cursor</api_synopsis>
+    <api_usage>
+      <pre> call Employee.Select()</pre>
+    </api_usage>
+  </function>
+  <function name="Init">
+    <api_synopsis> Initialize the module</api_synopsis>
+    <api_usage>
+      <pre> call Employee.Init()</pre>
+    </api_usage>
+  </function>
+  <function name="main"/>
+</api_class>

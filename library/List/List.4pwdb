@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WorkspaceDatabase fileContentsEncoding="UTF-8" version="2.0">
+<File m="List" n="List.4gl" ts="20170815105101687">
+<Fct c="18" el="307" l="294" n="ButtonEdit_ContextActive(p_search STRING)" t="F">
+<Call c="13" i="UI" l="302" n="ButtonEdit_ButtonActive" t="F"/>
+<Call c="13" i="UI" l="304" n="ButtonEdit_ButtonActive" t="F"/>
+</Fct>
+<Fct c="17" el="277" l="262" n="Item_Add(pa_items DYNAMIC ARRAY OF RECORD,p_name STRING,p_key INTEGER,p_selected BOOLEAN)" t="F"/>
+<Fct c="17" el="255" l="229" n="List_Copy(pa_src DYNAMIC ARRAY OF RECORD,pa_dst DYNAMIC ARRAY OF RECORD,p_filter STRING)" t="F"/>
+<Fct c="17" el="221" l="119" n="Dialog_DDSelect(p_title STRING,p_narrative STRING,p_actionText STRING,p_drag BOOLEAN,pa_item DYNAMIC ARRAY OF RECORD)" t="F">
+<Call c="8" l="135" n="List_Copy" t="F"/>
+<Call c="8" l="136" n="List_Copy" t="F"/>
+<Call c="11" i="UI" l="141" n="Window_Title" t="F"/>
+<Call c="14" l="150" n="ButtonEdit_ContextActive" t="F"/>
+<Call c="14" l="152" n="ButtonEdit_ContextActive" t="F"/>
+<Call c="14" l="153" n="List_Copy" t="F"/>
+<Call c="15" i="UI" l="186" n="Widget_Set" t="F"/>
+<Call c="12" l="190" n="List_Copy" t="F"/>
+<Call c="12" l="191" n="ButtonEdit_ContextActive" t="F"/>
+<Call c="12" l="214" n="List_Copy" t="F"/>
+</Fct>
+<Fct c="17" el="111" l="39" n="Dialog_Select(p_title STRING,p_narrative STRING,p_actionText STRING,pa_item DYNAMIC ARRAY OF RECORD)" t="F">
+<Call c="8" l="52" n="List_Copy" t="F"/>
+<Call c="8" l="53" n="List_Copy" t="F"/>
+<Call c="11" i="UI" l="58" n="Window_Title" t="F"/>
+<Call c="14" l="66" n="ButtonEdit_ContextActive" t="F"/>
+<Call c="14" l="68" n="ButtonEdit_ContextActive" t="F"/>
+<Call c="14" l="69" n="List_Copy" t="F"/>
+<Call c="15" i="UI" l="80" n="Widget_Set" t="F"/>
+<Call c="12" l="84" n="List_Copy" t="F"/>
+<Call c="12" l="85" n="ButtonEdit_ContextActive" t="F"/>
+<Call c="12" l="104" n="List_Copy" t="F"/>
+</Fct>
+</File>
+<File m="" n="List_DDselect.per" ts="20170317180622000"/>
+<File m="" n="List_Select.per" ts="20170317185958000"/>
+<File m="List_Unit" n="List_Unit.4gl" ts="20170331095130813">
+<Ref t="../../Include/Types.4gh"/>
+<Dep t="List.4gl"/>
+<Fct c="1" el="20" l="16" n="main()" t="F">
+<Call c="8" l="18" n="Run" t="F"/>
+</Fct>
+<Fct c="18" el="245" l="211" n="Test_List6()" t="F">
+<Call c="25" l="221" n="ts4" t="F"/>
+<Call c="25" l="222" n="ts4" t="F"/>
+<Call c="25" l="225" n="ts4" t="F"/>
+<Call c="25" l="226" n="ts4" t="F"/>
+<Call c="25" l="227" n="ts4" t="F"/>
+<Call c="25" l="228" n="ts4" t="F"/>
+<Call c="26" l="229" n="ts4" t="F"/>
+<Call c="26" l="230" n="ts4" t="F"/>
+<Call c="13" i="List" l="236" n="Dialog_Select" p="List.4gl" t="F"/>
+</Fct>
+<Fct c="18" el="205" l="191" n="Test_List5()" t="F">
+<Call c="13" i="List" l="202" n="Dialog_Select" p="List.4gl" t="F"/>
+</Fct>
+<Fct c="18" el="185" l="171" n="Test_List4()" t="F">
+<Call c="13" i="List" l="182" n="Dialog_Select" p="List.4gl" t="F"/>
+</Fct>
+<Fct c="18" el="166" l="152" n="Test_List3()" t="F">
+<Call c="13" i="List" l="163" n="Dialog_Select" p="List.4gl" t="F"/>
+</Fct>
+<Fct c="18" el="147" l="124" n="Test_List2()" t="F">
+<Call c="13" i="List" l="136" n="Dialog_DDSelect" p="List.4gl" t="F"/>
+</Fct>
+<Fct c="18" el="118" l="95" n="Test_List1()" t="F">
+<Call c="13" i="List" l="107" n="Dialog_Select" p="List.4gl" t="F"/>
+</Fct>
+<Fct c="18" el="83" l="81" n="Teardown()" t="F"/>
+<Fct c="18" el="75" l="73" n="Setup()" t="F"/>
+<Fct c="17" el="67" l="27" n="Run(p_request STRING)" t="F">
+<Call c="16" l="38" n="Test_List1" t="F"/>
+<Call c="16" l="40" n="Test_List2" t="F"/>
+<Call c="16" l="42" n="Test_List3" t="F"/>
+<Call c="16" l="44" n="Test_List4" t="F"/>
+<Call c="16" l="46" n="Test_List5" t="F"/>
+<Call c="16" l="48" n="Test_List6" t="F"/>
+<Call c="12" l="54" n="Test_List1" t="F"/>
+<Call c="12" l="56" n="Test_List2" t="F"/>
+<Call c="12" l="58" n="Test_List3" t="F"/>
+<Call c="12" l="60" n="Test_List4" t="F"/>
+<Call c="12" l="62" n="Test_List5" t="F"/>
+<Call c="12" l="64" n="Test_List6" t="F"/>
+</Fct>
+</File>
+</WorkspaceDatabase>

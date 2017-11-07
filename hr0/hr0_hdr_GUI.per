@@ -1,0 +1,64 @@
+SCHEMA hr
+
+LAYOUT (TEXT="Employees")
+GRID
+{
+ Employee Number [f01     ]
+<G gname                                                                >
+ First Name      [f02                          ]
+ Middle Name(s)  [f03                          ]
+ Surname         [f04                          ]
+ Preferred Name  [f05                          ]
+ Title           [f06]
+<                                                                       >
+<G gpersonal                                                            >
+ Birth Date      [f07       ]Gender          [x]
+<                                                                       >
+<G gcontact                                                             >
+ Address          [f11                                   ]
+                  [f12                                   ]
+                  [f13                                   ]
+                  [f14                                   ]
+ Country          [f16               ]Postcode[f15       ]
+
+ Phone Number     [f17               ]
+ Mobile Number    [f18               ]
+ Email Address    [f19                                   ]
+<                                                                       >
+}
+END
+
+TABLES
+  employee
+  
+ATTRIBUTES
+
+f01 = employee.employee_no, NOENTRY;
+
+GROUP gname: TEXT="Name";
+f02 = employee.firstname;
+f03 = employee.middlenames;
+f04 = employee.surname;
+f05 = employee.preferredname;
+COMBOBOX f06 = employee.title_id;
+
+GROUP gpersonal: TEXT="Personal Details";
+RADIOGROUP x = employee.gender, NOT NULL, ITEMS=(("M","Male"),("F","Female")), ORIENTATION=HORIZONTAL;
+DATEEDIT f07 = employee.birthdate;
+
+GROUP gcontact: TEXT="Contact Details";
+--TEXTEDIT f11 = 
+PHANTOM formonly.address;
+f11 = employee.address1;
+f12 = employee.address2;
+f13 = employee.address3;
+f14 = employee.address4;
+
+f15 = employee.postcode;
+COMBOBOX f16 = employee.country_id, NOT NULL, ITEMS=("Australia","Malaysia","New Zealand", "Singapore", "Thailand");
+f17 = employee.phone;
+f18 = employee.mobile;
+f19 = employee.email;
+
+INSTRUCTIONS
+SCREEN RECORD emp_scr(employee_no THRU email);

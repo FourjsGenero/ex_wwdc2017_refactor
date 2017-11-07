@@ -1,0 +1,138 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<api_class name="lib_om" package="UI" top="../" next="lib_std" prev="lib_fgx">
+  <function name="om_UInode">
+    <api_synopsis> Returns the AUI (Abstract User Interface) root Node</api_synopsis>
+    <api_returnType>om.DomNode</api_returnType>
+    <return>Node for the AUI root</return>
+    <api_usage>
+      <pre> define d_aui om.DomNode
+ let d_aui = om_UInode()</pre>
+    </api_usage>
+  </function>
+  <function name="om_NodeListSelect">
+    <api_synopsis> Gets a NodeList matching an XPath query</api_synopsis>
+    <api_returnType>om.NodeList</api_returnType>
+    <return>NodeList matching the XPath expression</return>
+    <api_usage>
+      <pre> define d_win om.DomNode, d_list om.NodeList
+ let d_win = om_WindowNode(NULL)
+ let d_list = om_NodeListFind(d_win, "//MenuAction")
+ let d_list = om_NodeListFind(NULL, "//Style")</pre>
+    </api_usage>
+    <api_param name="d_root" type="om.DomNode">Root node to search from, defaults to UI node</api_param>
+    <api_param name="p_path" type="STRING">XPath expression</api_param>
+  </function>
+  <function name="om_NodeAttribSet">
+    <api_synopsis> Set attribute of nodes that match XPath query</api_synopsis>
+    <api_usage>
+      <pre> call om_NodeAttribSet(d_parent, p_xpath, p_attrib, p_value)</pre>
+    </api_usage>
+    <api_param name="d_parent" type="om.DomNode">DomNode of parent to search from,
+                    NULL defaults to root node of UI</api_param>
+    <api_param name="p_xpath" type="STRING">XPath to node</api_param>
+    <api_param name="p_attrib" type="STRING">Style attribute</api_param>
+    <api_param name="p_value" type="STRING">Value to set attribute to</api_param>
+  </function>
+  <function name="om_NodeSelect">
+    <api_synopsis> Get first Node matching XPath query</api_synopsis>
+    <api_returnType>om.DomNode</api_returnType>
+    <return>Returns first Node that matches the XPath expression</return>
+    <api_usage>
+      <pre> define d_win, d_menu om.DomNode
+ let d_win = om_WindowNode("")
+ let d_menu = om_NodeListFind(d_win, "//Form/TopMenu")
+ let d_menu = om_NodeListFind(NULL, "//Window/Menu")</pre>
+    </api_usage>
+    <api_param name="d_root" type="om.DomNode">Root node to search from, defaults to UI node</api_param>
+    <api_param name="p_path" type="STRING">XPath to node</api_param>
+  </function>
+  <function name="om_NodeAttribGet">
+    <api_synopsis> Get attribute of first node that matches XPath query</api_synopsis>
+    <api_returnType>String</api_returnType>
+    <return>Attribute value of the Node</return>
+    <api_usage>
+      <pre> define d_root om.DomNode, p_hidden boolean, p_file string
+ let d_root = om_WindowNode("w_customer")
+ let p_hidden = om_NodeAttribGet(d_root, "//FormField[@name='id']", "hidden")
+ let p_file = om_NodeAttribGet(NULL, "/UserInterface/StyleList", "fileName")</pre>
+    </api_usage>
+    <api_param name="d_parent" type="om.DomNode">DomNode of parent to search from,
+                    NULL defaults to root node of UI</api_param>
+    <api_param name="p_xpath" type="STRING">XPath to node</api_param>
+    <api_param name="p_attrib" type="STRING">Style attribute</api_param>
+  </function>
+  <function name="om_NodeFind">
+    <api_synopsis> Find first Node matching Tag and Attribute starting from a root Node</api_synopsis>
+    <api_returnType>om.DomNode</api_returnType>
+    <return>DomNode if found, otherwise NULL</return>
+    <api_usage>
+      <pre> define d_aui, d_node om.DomNode
+ let d_aui = ui.Interface.getRootNode()
+ let d_node = om_NodeFind(d_aui, "Form", "name", "custForm")</pre>
+    </api_usage>
+    <api_param name="d_parent" type="om.DomNode">DomNode of parent to search from,
+                    NULL defaults to root node of UI</api_param>
+    <api_param name="p_tag" type="STRING">XML tag name</api_param>
+    <api_param name="p_attrib" type="STRING">Attribute to match, typically name, text or colName</api_param>
+    <api_param name="p_value" type="STRING">Matching value - can be metachar (wildcard) string</api_param>
+  </function>
+  <function name="om_WindowNode">
+    <api_synopsis> Returns window Node by name, default is the Node for the current window</api_synopsis>
+    <api_returnType>om.DomNode</api_returnType>
+    <return>DomNode if found, otherwise NULL</return>
+    <api_usage>
+      <pre> define d_win om.DomNode
+ let d_win = om_WindowNode("")
+ let d_win = om_WindowNode("customer")</pre>
+    </api_usage>
+    <api_param name="p_name" type="STRING">Name of the window, NULL defaults to current window</api_param>
+  </function>
+  <function name="om_FormNode">
+    <api_synopsis> Return the node for a form, defaults to current form</api_synopsis>
+    <api_returnType>om.DomNode</api_returnType>
+    <return>DomNode if found, otherwise NULL</return>
+    <api_usage>
+      <pre> define d_form om.DomNode
+ let d_form = om_FormNode("customerForm")</pre>
+    </api_usage>
+    <api_param name="p_name" type="STRING">Name of the form, NULL defaults to current form</api_param>
+  </function>
+  <function name="om_ElementDelete">
+    <api_synopsis> Deletes a DomDoc element and its children</api_synopsis>
+    <api_usage>
+      <pre> call om_ElementDelete(100)</pre>
+    </api_usage>
+    <api_param name="p_parentID" type="INTEGER">Element ID of parent DomNode</api_param>
+  </function>
+  <function name="om_ElementCreate">
+    <api_synopsis> Creates a DomDoc element</api_synopsis>
+    <api_returnType>integer</api_returnType>
+    <return>Element ID of DomNode</return>
+    <api_usage>
+      <pre> define p_nodeId integer
+ let p_nodeId = om_ElementCreate(100, "StartMenuGroup")</pre>
+    </api_usage>
+    <api_param name="p_parentID" type="INTEGER">Element ID of parent DomNode</api_param>
+    <api_param name="p_tagName" type="STRING">Tagname of node to create</api_param>
+  </function>
+  <function name="om_ElementAttribSet">
+    <api_synopsis> Set attribute of an DomDoc element</api_synopsis>
+    <api_usage>
+      <pre> call om_ElementAttribSet(100, "color", "red")</pre>
+    </api_usage>
+    <api_param name="p_elementID" type="INTEGER">Element ID of DomNode</api_param>
+    <api_param name="p_attrib" type="STRING">Attribute of node</api_param>
+    <api_param name="p_value" type="STRING">Value to set attribute to</api_param>
+  </function>
+  <function name="om_ElementAttributeGet">
+    <api_synopsis> Get attribute of a DomDoc element</api_synopsis>
+    <api_returnType>String</api_returnType>
+    <return>Value of attribute</return>
+    <api_usage>
+      <pre> define p_value string
+ let p_value = om_ElementAttribGet(100, "color")</pre>
+    </api_usage>
+    <api_param name="p_elementID" type="INTEGER">Element ID of a DomNode</api_param>
+    <api_param name="p_attrib" type="STRING">Attribute of node</api_param>
+  </function>
+</api_class>

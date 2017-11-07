@@ -1,0 +1,17 @@
+
+layout (text="Employees", version="001")
+
+  folder
+    page list (text = "List")
+      form "Emp_List"
+    end --page: list
+    page document (text = "Document")
+      hbox
+        form "Emp_Hdr"
+        form "Emp_Dtl"
+      end --hbox
+    end --page: document
+  end --folder
+  
+end--layout
+

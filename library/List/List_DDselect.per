@@ -1,0 +1,48 @@
+layout
+  vbox
+
+  grid
+  {
+  [l1                                   ]
+  [b1       |b2       ] Search: [f1             ]
+  }
+  end--grid
+
+  table t_list
+  {
+  [x] [l2                               ]
+  }
+  end--table
+
+  grid
+  {
+  [b3       |b4       ] [b5     |b6     ]
+  }
+  end--grid
+
+  end--vbox
+end--layout
+
+attributes
+
+label l1 = formonly.p_narrative, style = "big";
+buttonedit f1 = formonly.l_search, completer, action = b_clearsearch,
+  image = "delete";
+
+checkbox x = formonly.selected type boolean, not null;
+label l2 = formonly.name;
+phantom formonly.key;
+phantom formonly.idx;
+
+button b1 : b_selectall, text="Select All";
+button b2 : b_deselectall, text="Deselect All";
+button b3 : b_delete, text="Delete Selection";
+button b4 : b_add, text="Add Profile";
+button b5 : b_cancel, text="Cancel";
+button b6 : b_ok, text="OK";
+
+end--attributes
+
+instructions
+ screen record sar_items[1](selected thru idx)
+end--instructions

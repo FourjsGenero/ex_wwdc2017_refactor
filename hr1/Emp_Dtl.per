@@ -1,0 +1,66 @@
+schema hr
+
+layout (text="Employee Details")
+  grid
+  {
+  Start Date             [f01       ]*
+  Position               [f02                 ]*
+  Tax Number             [f03                 ]*
+  Salary/Wage            [f04       ]*    [f05]
+
+  <G g1                    > 
+   <T t1                  >
+   [p01       ][p02       ]
+   [p01       ][p02       ]
+   [p01       ][p02       ]
+   [p01       ][p02       ]
+   
+  <G g2                         ><G g3                        >
+   <T t2                       >  <T t3                      >
+   [c01       ][c02   ][c03    ]  [d01       ][d02   ][d03   ] 
+   [c01       ][c02   ][c03    ]  [d01       ][d02   ][d03   ] 
+   [c01       ][c02   ][c03    ]  [d01       ][d02   ][d03   ]  
+   [c01       ][c02   ][c03    ]  [d01       ][d02   ][d03   ] 
+                       [f06    ]                      [f07   ]
+  }
+  end --grid
+end --layout
+
+tables
+  paysummary, sickleave, annualleave
+end --tables
+
+attributes
+  dateedit f01 = formonly.startdate;
+  f02 = formonly.position;
+  f03 = formonly.taxnumber;
+  f04 = formonly.base, format="#,###,##&";
+  f05 = formonly.basetype, noentry;
+
+  group g1 : text="Pay Summary";
+  phantom formonly.pay_employee_no;
+  dateedit p01 = paysummary.pay_date, title="Date";
+  p02 = paysummary.pay_amount, title="Amount", format="#,###,##&";
+
+  group g2 : text="Sick Leave";
+  phantom formonly.sick_employee_no;
+  dateedit c01 = sickleave.sick_date, title="Date";
+  c02 = sickleave.sick_adjustment, title="Adjustment", format="##&.&&";
+  c03 = sickleave.sick_runningbalance, title="Balance", format="##&.&&";
+  aggregate f06 = formonly.sick_balance, aggregateType=PROGRAM, aggregateText="Balance:";
+
+  group g3 : text="Annual Leave";
+  phantom formonly.annual_employee_no;
+  dateedit d01 = annualleave.annual_date, title="Date";
+  d02 = annualleave.annual_adjustment, title="Adjustment", format="##&.&&";
+  d03 = annualleave.annual_runningbalance, title="Balance",  format="##&.&&";
+  aggregate f07 = formonly.annual_balance, aggregateType=PROGRAM, aggregateText="Balance:";
+end --attributes
+
+
+instructions
+  screen record emp_dtl(startdate thru basetype, sick_balance, annual_balance);
+  screen record pay_scr(pay_employee_no thru pay_amount);
+  screen record sick_scr(sick_employee_no thru sick_runningbalance);
+  screen record annual_scr(annual_employee_no thru annual_runningbalance);
+end --instructions

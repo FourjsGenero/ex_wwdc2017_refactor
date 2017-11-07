@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WorkspaceViewState version="1.0">
+  <ExpandedNodes>
+    <Node path="UI.4pw" type="pm/main-project"/>
+    <Node path="UI.4pw/_Imports" type="pm/group"/>
+    <Node path="UI.4pw/_Imports/OM.4pw" type="pm/ext-project"/>
+    <Node path="UI.4pw/_Imports/Common.4pw" type="pm/ext-project"/>
+    <Node path="UI.4pw/Library" type="pm/group"/>
+    <Node path="UI.4pw/Library/UI" type="pm/application"/>
+  </ExpandedNodes>
+  <OpenDocuments>
+    <Document container="true" filePath="UI.4gl" locator="1:1" module="mod-ce3">
+      <Data name="8" value="UTF-8"/>
+    </Document>
+  </OpenDocuments>
+  <CurrentDocument filePath="" module="mod-wp"/>
+</WorkspaceViewState>

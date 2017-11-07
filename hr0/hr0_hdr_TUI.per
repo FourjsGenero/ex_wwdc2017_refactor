@@ -1,0 +1,54 @@
+SCHEMA hr
+
+SCREEN SIZE 25 BY 80
+{
+Employee Number [f01     ]
+First Name      [f02                          ]
+Middle Name(s)  [f03                          ]
+Surname         [f04                          ]
+Preferred Name  [f05                          ]
+Title           [f06]
+
+Birth Date      [f07       ]Gender          [x]
+
+Address         [f11                                   ]
+                [f12                                   ]
+                [f13                                   ]
+                [f14                                   ]
+Country         [f16               ]Postcode[f15       ]
+
+Phone Number    [f17               ]
+Mobile Number   [f18               ]
+Email Address   [f19                                   ]
+}
+END
+
+TABLES
+employee
+
+ATTRIBUTES
+f01 = employee.employee_no, NOENTRY;
+f02 = employee.firstname;
+f03 = employee.middlenames;
+f04 = employee.surname;
+f05 = employee.preferredname;
+f06 = employee.title_id;
+
+x = employee.gender, UPSHIFT, INCLUDE=("M","F") ;
+f07 = employee.birthdate;
+
+PHANTOM formonly.address;
+f11 = employee.address1;
+f12 = employee.address2;
+f13 = employee.address3;
+f14 = employee.address4;
+f15 = employee.postcode;
+f16 = employee.country_id, INCLUDE =("AU","CN","HK","IN","MY","NZ","SG","TH","TW","VT");
+
+
+f17 = employee.phone;
+f18 = employee.mobile;
+f19 = employee.email;
+
+INSTRUCTIONS
+SCREEN RECORD emp_scr(employee_no THRU email);

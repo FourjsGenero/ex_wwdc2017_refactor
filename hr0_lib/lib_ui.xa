@@ -1,0 +1,217 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<api_class name="lib_ui" package="UI" top="../" next="main" prev="lib_std">
+  <function name="ui_WindowTitle">
+    <api_synopsis> Set the Title bar text of the current window</api_synopsis>
+    <api_usage>
+      <pre> call ui_WindowTitle("My Window")</pre>
+    </api_usage>
+    <api_param name="p_text" type="STRING">Window Text</api_param>
+  </function>
+  <function name="ui_WidgetSet">
+    <api_synopsis> Set an attribute of a Field Widget in the current window</api_synopsis>
+    <api_usage>
+      <pre> call ui_WidgetSet("", "password", "isPassword", TRUE)
+ call ui_WidgetSet("FormField/*", "password", "isPassword", TRUE)</pre>
+    </api_usage>
+    <api_param name="p_class" type="STRING">Class - defaults to FormField/* or TableColumn/*</api_param>
+    <api_param name="p_name" type="STRING">Name of field in primary node</api_param>
+    <api_param name="p_attrib" type="STRING">Attribute of field</api_param>
+    <api_param name="p_value" type="STRING">Value to set attribute to</api_param>
+  </function>
+  <function name="ui_WidgetNode">
+    <api_synopsis> Get Node for a Field Widget in the current window
+ Widget is typically a child of a FormField or TableColumn</api_synopsis>
+    <api_returnType>om.DomNode</api_returnType>
+    <return>Node for a Class of widget identified by Name</return>
+    <api_usage>
+      <pre> define d_cust om.DomNode
+ let d_cust = ui_WidgetNode("", "formonly.custid")
+ let d_cust = ui_WidgetNode("FormField/ButtonEdit", "custid")</pre>
+    </api_usage>
+    <api_param name="p_class" type="STRING">Class - defaults to FormField/* or TableColumn/*</api_param>
+    <api_param name="p_name" type="STRING">Name of field in primary node</api_param>
+  </function>
+  <function name="ui_WidgetGet">
+    <api_synopsis> Get an attribute from a Field Widget in the current window
+ Widget is typically a child of a FormField or TableColumn</api_synopsis>
+    <api_returnType>String</api_returnType>
+    <return>Value of attribute</return>
+    <api_usage> define p_value string
+ let p_value = ui_WidgetGet(NULL, "custid", "color")
+ let p_value = ui_WidgetGet("TableColumn/Edit", "account", "format")</api_usage>
+    <api_param name="p_class" type="STRING">Class - defaults to FormField/* or TableColumn/*
+                  but can specify specific eg. TableColumn/Edit</api_param>
+    <api_param name="p_name" type="STRING">Name of field in primary node</api_param>
+    <api_param name="p_attrib" type="STRING">Attribute of field</api_param>
+  </function>
+  <function name="ui_StyleSet">
+    <api_synopsis> Set Style Attribute</api_synopsis>
+    <api_usage>
+      <pre> call ui_StyleSet("Label.Heading", "fontFamily", "Helvetica")</pre>
+    </api_usage>
+    <api_param name="p_style" type="STRING">Style name</api_param>
+    <api_param name="p_attrib" type="STRING">Style attribute</api_param>
+    <api_param name="p_value" type="STRING">Value to set attribute to</api_param>
+  </function>
+  <function name="ui_StyleGet">
+    <api_synopsis> Get Style Attribute</api_synopsis>
+    <api_returnType>String</api_returnType>
+    <return>Style Attribute value</return>
+    <api_usage>
+      <pre> define p_value string
+ let p_value = ui_StyleGet("Label.Heading", "fontFamily")</pre>
+    </api_usage>
+    <api_param name="p_style" type="STRING">Style name</api_param>
+    <api_param name="p_attrib" type="STRING">Style attribute</api_param>
+  </function>
+  <function name="ui_TableSize">
+    <api_synopsis> Sets maximum number of rows in table</api_synopsis>
+    <api_usage>
+      <pre> call ui_TableSize("t_list", 100)</pre>
+    </api_usage>
+    <api_param name="p_table" type="STRING">Name of table in current form</api_param>
+    <api_param name="p_rows" type="INTEGER">Number of rows</api_param>
+  </function>
+  <function name="ui_MenuAttach">
+    <api_synopsis> Create and attach a Menu object</api_synopsis>
+    <api_returnType>om.DomNode</api_returnType>
+    <return>DomNode of menu object</return>
+    <api_usage>
+      <pre> define d_menu, d_grp, d_cmd om.DomNode
+ let d_menu = ui_ItemNode("TopMenu", "top")
+ let d_grp = ui_MenuAttach(d_menu, "TopMenuGroup", "Config", "folder", "")
+ let d_menu = ui_MenuAttach(d_grp, "TopMenuCommand", "Setup", "leaf", "teams")</pre>
+    </api_usage>
+    <api_param name="d_parent" type="om.DomNode">DomNode of parent to attach menu object</api_param>
+    <api_param name="p_class" type="STRING">TopMenuGroup|TopMenuCommand|StartMenuGroup|StartMenuCommand</api_param>
+    <api_param name="p_text" type="STRING">Text for group</api_param>
+    <api_param name="p_image" type="STRING">Optional image</api_param>
+    <api_param name="p_cmd" type="STRING">Command (shell) to execute</api_param>
+  </function>
+  <function name="ui_NodeListFind">
+    <api_synopsis> Finds a List of Nodes matching Class and Name</api_synopsis>
+    <api_returnType>om.NodeList</api_returnType>
+    <return>NodeList of matched nodes</return>
+    <api_usage>
+      <pre> define d_win om.DomNode, d_list om.NodeList
+ let d_win = om_WindowNode(NULL)
+ let d_list = ui_NodeListFind(d_win, "LocalAction", "interrupt")</pre>
+    </api_usage>
+    <api_param name="d_root" type="om.DomNode">Root node (defaults to UI node)</api_param>
+    <api_param name="p_class" type="STRING">Class of Form Item (node tag: Eg. Table, Group, Grid, ...)</api_param>
+    <api_param name="p_name" type="STRING">Name attribute, MUST have NAME defined for Item in form spec</api_param>
+  </function>
+  <function name="ui_NodeSet">
+    <api_synopsis> Set an attribute of a Node in the current window</api_synopsis>
+    <api_usage>
+      <pre> define d_win om.DomNode
+ let d_win = om_WindowNode(NULL)
+ call ui_NodeSet(d_win, "Group", "gPage", "text", "Instances")</pre>
+    </api_usage>
+    <api_param name="d_root" type="om.DomNode">Root node (defaults to UI node)</api_param>
+    <api_param name="p_class" type="STRING">Class of Form Item (node tag: Eg. Table, Group, Grid, ...)</api_param>
+    <api_param name="p_name" type="STRING">Name attribute, MUST have NAME defined for Item in form spec</api_param>
+    <api_param name="p_attrib" type="STRING">Attribute of item</api_param>
+    <api_param name="p_value" type="STRING">Value to set attribute to</api_param>
+  </function>
+  <function name="ui_ItemSet">
+    <api_synopsis> Set an attribute of a Form Item in the current window</api_synopsis>
+    <api_usage>
+      <pre> call ui_ItemSet("Table", "t_list", "width", "38")</pre>
+    </api_usage>
+    <api_param name="p_class" type="STRING">Class of Form Item (node tag: Eg. Table, Group, Grid, ...)</api_param>
+    <api_param name="p_name" type="STRING">Name attribute, MUST have NAME defined for Item in form spec</api_param>
+    <api_param name="p_attrib" type="STRING">Attribute of item</api_param>
+    <api_param name="p_value" type="STRING">Value to set attribute to</api_param>
+  </function>
+  <function name="ui_ItemNode">
+    <api_synopsis> Return Node for a Form Item in the current window</api_synopsis>
+    <api_returnType>om.DomNode</api_returnType>
+    <return>DomNode for the named Form Item</return>
+    <api_usage>
+      <pre> define d_table om.DomNode
+ let d_table = ui_ItemNode("Table", "t_list")</pre>
+    </api_usage>
+    <api_param name="p_class" type="STRING">Class of Form Item (node tag: Eg. Table, Group, Grid, ...)</api_param>
+    <api_param name="p_name" type="STRING">Name attribute - MUST have NAME defined for Item in form spec</api_param>
+  </function>
+  <function name="ui_NodeGet">
+    <api_synopsis> Get an Attribute from a Node</api_synopsis>
+    <api_returnType>String</api_returnType>
+    <return>Value of attribute</return>
+    <api_usage>
+      <pre> define d_win om.DomNode, p_value string
+ let d_win = om_WindowNode(NULL)
+ let p_value = ui_NodeGet(d_win, "Group", "gPage", "text")</pre>
+    </api_usage>
+    <api_param name="d_root" type="om.DomNode">Root node (NULL defaults to UI node) to search from</api_param>
+    <api_param name="p_class" type="STRING">Class of Form Item (node tag: Eg. Table, Group, Grid, ...)</api_param>
+    <api_param name="p_name" type="STRING">Name attribute, MUST have NAME defined for Item in form spec</api_param>
+    <api_param name="p_attrib" type="STRING">Attribute of item</api_param>
+  </function>
+  <function name="ui_ItemGet">
+    <api_synopsis> Get an attribute from a Form Item in the current window</api_synopsis>
+    <api_returnType>String</api_returnType>
+    <return>Value of attribute</return>
+    <api_usage>
+      <pre> define p_value string
+ let p_value = ui_ItemGet("Table", "t_list", "tabName")</pre>
+    </api_usage>
+    <api_param name="p_class" type="STRING">Class of Form Item (node tag: Eg. Table, Group, Grid, ...)</api_param>
+    <api_param name="p_name" type="STRING">Name attribute, MUST have NAME defined for Item in form spec</api_param>
+    <api_param name="p_attrib" type="STRING">Attribute of item</api_param>
+  </function>
+  <function name="ui_FieldSet">
+    <api_synopsis> Set an attribute of a Field node in the current window</api_synopsis>
+    <api_usage>
+      <pre> call ui_FieldSet(p_name, p_attrib, p_value)</pre>
+    </api_usage>
+    <api_param name="p_name" type="STRING">Name of field (either name=table.column or colName=column)</api_param>
+    <api_param name="p_attrib" type="STRING">Attribute of field</api_param>
+    <api_param name="p_value" type="STRING">Value to set attribute to</api_param>
+  </function>
+  <function name="ui_NodeFind">
+    <api_synopsis> Finds first Node matching Class (tag) and Name</api_synopsis>
+    <api_returnType>om.DomNode</api_returnType>
+    <return>First Node that matches</return>
+    <api_usage>
+      <pre> define d_win, d_group om.DomNode
+ let d_win = om_WindowNode(NULL)
+ let d_group = ui_NodeFind(d_win, "Group", "gPage")</pre>
+    </api_usage>
+    <api_param name="d_root" type="om.DomNode">Root node (defaults to UI node)</api_param>
+    <api_param name="p_class" type="STRING">Class of Form Item (node tag: Eg. Table, Group, Grid, ...)</api_param>
+    <api_param name="p_name" type="STRING">Name attribute, MUST have NAME defined for Item in form spec</api_param>
+  </function>
+  <function name="ui_FieldNode">
+    <api_synopsis> Return node for a Form Field identified by name</api_synopsis>
+    <api_returnType>om.DomNode</api_returnType>
+    <return>DomNode of FormField</return>
+    <api_usage>
+      <pre> define d_custid om.DomNode
+ let d_custid = ui_FieldNode("custid")</pre>
+    </api_usage>
+    <api_param name="p_name" type="STRING">Name of field (either name=table.column or colName=column)</api_param>
+  </function>
+  <function name="ui_FieldGet">
+    <api_synopsis> Get an attribute from a Field node in the current window</api_synopsis>
+    <api_returnType>String</api_returnType>
+    <return>Value of attribute</return>
+    <api_usage>
+      <pre> define p_value string
+ let p_value = ui_FieldGet("customer.name", "varType")</pre>
+    </api_usage>
+    <api_param name="p_name" type="STRING">Name of field (either name=table.column or colName=column)</api_param>
+    <api_param name="p_attrib" type="STRING">Attribute of field</api_param>
+  </function>
+  <function name="ui_ComboList">
+    <api_synopsis> Sets the INCLUDE values in a Combo widget</api_synopsis>
+    <api_usage>
+      <pre> call ui_ComboList("honorific", "Mr|Mrs|Miss|Ms")
+ call ui_ComboList("state", "SELECT stateId, name FROM states")</pre>
+    </api_usage>
+    <api_param name="p_colName" type="STRING">Field or column name of combo widget</api_param>
+    <api_param name="p_query" type="STRING">SQL statement or a pipe (|) separated list of tuples
+                    where each tuple may be value,description pair sep by (^)</api_param>
+  </function>
+</api_class>

@@ -1,0 +1,25 @@
+SCHEMA hr
+
+SCREEN SIZE 25 BY 80
+{
+ No   Surname                        FirstName
+[f0  |f1                            |f2                            ] 
+[f0  |f1                            |f2                            ]
+[f0  |f1                            |f2                            ]
+[f0  |f1                            |f2                            ]
+[f0  |f1                            |f2                            ]
+[f0  |f1                            |f2                            ]
+[f0  |f1                            |f2                            ]
+[f0  |f1                            |f2                            ]
+[f0  |f1                            |f2                            ]
+[f0  |f1                            |f2                            ]
+}
+END
+
+ATTRIBUTES
+f0 = formonly.employee_no, NOENTRY;
+f1 = formonly.surname;
+f2 = formonly.firstname;
+
+INSTRUCTIONS
+SCREEN RECORD emp_list[10](employee_no THRU firstname);

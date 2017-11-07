@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='windows-1252'?>
+<api_class name="Emp_View" package="hr1" top="../" next="Employee" prev="Emp_Unit">
+  <function name="Query">
+    <api_synopsis> Query by Example in the Form, updates the Selection set</api_synopsis>
+    <api_usage>
+      <pre> call Emp_View.Query()</pre>
+    </api_usage>
+    <api_param name="po_dialog" type="ui.Dialog"/>
+  </function>
+  <function name="Show">
+    <api_synopsis> Show View of Employee</api_synopsis>
+    <api_usage>
+      <pre> call Emp_View.Show()</pre>
+    </api_usage>
+  </function>
+  <function name="Init">
+    <api_synopsis> Initialize the module</api_synopsis>
+    <api_usage>
+      <pre> call Emp_View.Init()</pre>
+    </api_usage>
+  </function>
+</api_class>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WorkspaceDatabase fileContentsEncoding="CP1252" version="2.0">
+<File m="Selection" n="Selection.4gl" ts="20170925125753463">
+<Fct c="15" el="421" l="388" n="Search()" t="D">
+<Call c="32" l="409" n="Filter" t="F"/>
+<Call c="30" l="414" n="Filter" t="F"/>
+<Call c="14" l="418" n="Options_Dialog" t="F"/>
+</Fct>
+<Fct c="18" el="377" l="362" n="describeTable(tabName STRING)" t="F"/>
+<Fct c="18" el="359" l="332" n="bestWidth(t STRING)" t="F"/>
+<Fct c="18" el="329" l="289" n="createDisplayArrayForm(tabName STRING)" t="F">
+<Call c="41" l="326" n="bestWidth" t="F"/>
+</Fct>
+<Fct c="18" el="282" l="278" n="xRefresh(pr_selection RECORD)" t="F"/>
+<Fct c="18" el="262" l="230" n="xSQL(pr_selection RECORD,p_select STRING)" t="F"/>
+<Fct c="18" el="212" l="173" n="xFilter(pr_selection RECORD,p_match STRING)" t="F"/>
+<Fct c="18" el="154" l="118" n="xOptions_Dialog(pr_options RECORD)" t="F"/>
+<Fct c="17" el="104" l="100" n="Refresh()" t="F">
+<Call c="8" l="102" n="xRefresh" t="F"/>
+</Fct>
+<Fct c="17" el="97" l="92" n="SQL(p_select STRING)" t="F">
+<Call c="10" l="95" n="xSQL" t="F"/>
+</Fct>
+<Fct c="17" el="89" l="85" n="Filter(p_match STRING)" t="F">
+<Call c="10" l="87" n="xFilter" t="F"/>
+</Fct>
+<Fct c="17" el="82" l="77" n="Options_Dialog()" t="F">
+<Call c="8" l="79" n="xOptions_Dialog" t="F"/>
+</Fct>
+</File>
+<File m="" n="Selection_SearchOptions.per" ts="20170317154826000"/>
+<File m="Selection_Unit" n="Selection_Unit.4gl" ts="20170331095224794">
+<Dep t="Selection.4gl"/>
+<Fct c="1" el="18" l="14" n="main()" t="F">
+<Call c="8" l="16" n="Run" t="F"/>
+</Fct>
+<Fct c="18" el="46" l="44" n="Teardown()" t="F"/>
+<Fct c="18" el="38" l="36" n="Setup()" t="F"/>
+<Fct c="17" el="30" l="25" n="Run(p_request STRING)" t="F"/>
+</File>
+</WorkspaceDatabase>
