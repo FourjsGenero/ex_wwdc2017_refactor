@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<WorkspaceDatabase fileContentsEncoding="CP1252" version="2.0">
-<File m="Employee" n="hr1/Employee.4gl" ts="20170926175437418">
+<WorkspaceDatabase fileContentsEncoding="UTF-8" version="2.0">
+<File m="Employee" n="hr1/Employee.4gl" ts="20180514135343125">
 <Fct c="18" el="1052" l="1043" n="country_Get(p_countryid unknown)" t="F"/>
 <Fct c="18" el="1030" l="923" n="selection_Defaults()" t="F">
 <Call c="31" i="Selection" l="1024" n="Filter" t="F"/>
@@ -91,8 +91,6 @@
 <Call c="36" l="133" n="Valid_Email" t="F"/>
 </Fct>
 <Fct c="1" el="62" l="60" n="main()" t="F"/>
-<Bug l="151" t="string"/>
-<Bug l="152" t="= Selection.SQL(&quot;DATA&quot;)"/>
 </File>
 <File m="hr_sqt_x" n="model/hr_sqt_x.4gl" ts="20170907164135258">
 <Fct c="10" el="145" l="140" n="db_add_indexes()" t="F"/>
@@ -104,8 +102,8 @@
 <Call c="10" l="11" n="db_add_indexes" t="F"/>
 </Fct>
 </File>
-<File m="hr0_dtl_global" n="hr0/hr0_dtl_global.4gl" ts="20170907164135312"/>
-<File m="hr0_dtl_maint" n="hr0/hr0_dtl_maint.4gl" ts="20170927171015070">
+<File m="hr0_dtl_global" n="hr0/hr0_dtl_global.4gl" ts="20180514135343157"/>
+<File m="hr0_dtl_maint" n="hr0/hr0_dtl_maint.4gl" ts="20180514135343167">
 <Ref t="hr0/hr0_hdr_global.4gl"/>
 <Ref t="hr0/hr0_dtl_global.4gl"/>
 <Fct c="17" el="449" l="428" n="SickLeave_Balance()" t="F"/>
@@ -148,8 +146,8 @@
 <Call c="14" l="46" n="AnnualLeave_View" t="F"/>
 </Fct>
 </File>
-<File m="hr0_hdr_global" n="hr0/hr0_hdr_global.4gl" ts="20170926135455085"/>
-<File m="hr0_hdr_maint" n="hr0/hr0_hdr_maint.4gl" ts="20170927164439999">
+<File m="hr0_hdr_global" n="hr0/hr0_hdr_global.4gl" ts="20180514135343136"/>
+<File m="hr0_hdr_maint" n="hr0/hr0_hdr_maint.4gl" ts="20180514135343148">
 <Ref t="hr0/hr0_hdr_global.4gl"/>
 <Ref t="hr0/hr0_dtl_global.4gl"/>
 <Fct c="10" el="941" l="923" n="EmpList_Load(p_where STRING)" t="F">
@@ -302,7 +300,7 @@
 <Call c="8" l="61" n="loc_Init" t="F"/>
 </Fct>
 </File>
-<File m="lib_std" n="hr0_lib/lib_std.4gl" ts="20170927164439941">
+<File m="lib_std" n="hr0_lib/lib_std.4gl" ts="20180514135343176">
 <Fct c="17" el="120" l="115" n="_(p_string STRING)" t="F"/>
 <Fct c="10" el="106" l="99" n="ts(p_idx INTEGER)" t="F"/>
 <Fct c="10" el="93" l="86" n="sp(p_idx INTEGER)" t="F"/>
@@ -402,7 +400,7 @@
 <Call c="8" l="22" n="Run" t="F"/>
 </Fct>
 </File>
-<File m="Emp_View" n="hr1/Emp_View.4gl" ts="20170928092050207">
+<File m="Emp_View" n="hr1/Emp_View.4gl" ts="20180514135343110">
 <Dep t="library/Common/Common.4gl"/>
 <Dep t="library/UI/UI.4gl"/>
 <Dep t="library/Selection/Selection.4gl"/>

@@ -3,11 +3,7 @@
   <ExpandedNodes>
     <Node path="hr.4pw" type="pm/main-project"/>
     <Node path="hr.4pw/_Imports" type="pm/group"/>
-    <Node path="hr.4pw/_Imports/Common.4pw" type="pm/ext-project"/>
-    <Node path="hr.4pw/_Imports/Common.4pw/Library" type="pm/group"/>
     <Node path="hr.4pw/_Imports/Common.4pw/Library/Common" type="pm/application"/>
-    <Node path="hr.4pw/_Imports/Selection.4pw" type="pm/ext-project"/>
-    <Node path="hr.4pw/_Imports/Selection.4pw/Library" type="pm/group"/>
     <Node path="hr.4pw/_Imports/Selection.4pw/Library/Selection" type="pm/application"/>
     <Node path="hr.4pw/_Imports/UI.4pw/Library" type="pm/group"/>
     <Node path="hr.4pw/_Imports/UI.4pw/Library/UI" type="pm/application"/>
@@ -20,15 +16,8 @@
     <Node path="hr.4pw/HR/hr1" type="pm/application"/>
     <Node path="hr.4pw/HR/hr1/Logic" type="pm/virtual-folder"/>
     <Node path="hr.4pw/HR/hr1/Views" type="pm/virtual-folder"/>
+    <Node path="hr.4pw/HR/Resources" type="pm/library"/>
   </ExpandedNodes>
-  <OpenDocuments>
-    <Document container="true" filePath="model/hr.4db" locator="" module="mod-db3"/>
-    <Document container="true" filePath="hr1/Employee.4gl" locator="56:1" module="mod-ce3">
-      <Data name="8" value="CP1252"/>
-    </Document>
-    <Document container="true" filePath="hr1/Emp_View.4gl" locator="269:9:269:14" module="mod-ce3">
-      <Data name="8" value="CP1252"/>
-    </Document>
-  </OpenDocuments>
-  <CurrentDocument filePath="hr1/Emp_View.4gl" module="mod-ce3"/>
+  <OpenDocuments/>
+  <CurrentDocument filePath="" module="mod-wp"/>
 </WorkspaceViewState>

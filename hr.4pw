@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<Project defaultApplication="1893635952" gstVersion="30a06" version="3.2">
+<Project defaultApplication="1893635952" gstVersion="30a07" version="3.2">
   <Settings>
     <DynamicProperties version="2">
       <DynamicProperty description="Accent color (Android 5.0 and later)" initialValue="#9575CD" isDefaultInherited="false" isHidden="false" label="Accent color" name="gma-accent-color" readOnly="false" type="COLOR"/>
@@ -75,7 +75,7 @@
     <ExtProject filePath="library/UI/UI.4pw" id="-277369301"/>
   </Group>
   <Group environment="dirlist:FGLIMAGEPATH=$(ProjectDir)/resources/image2font.txt;$(ProjectDir)/resources;$(FGLDIR)/lib/image2font.txt;$(FGLDIR)/lib,dirlist:FGLRESOURCEPATH=$(ProjectDir)/resources,value:DBDATE=DMY4/,dirlist:FGLDBPATH=$(ProjectDir)/model,file:FGLPROFILE=$(ProjectDir)/resources/sqlite.prof" label="HR" language="Genero">
-    <Library binaryName="Data Model" id="1986" label="Data Model">
+    <Library binaryName="Data Model" excludeFromBuild="true" id="1986" label="Data Model">
       <VirtualFolder label="Models">
         <File filePath="hr1/Employee.4gl"/>
       </VirtualFolder>
@@ -118,7 +118,7 @@
         <File filePath="hr1/Employee.per"/>
       </VirtualFolder>
     </Application>
-    <Library binaryName="Resources" id="245337212" label="Resources">
+    <Library binaryName="Resources" excludeFromBuild="true" id="245337212" label="Resources">
       <File filePath="resources/default.4ad"/>
       <File filePath="resources/hr1.4ad"/>
       <File filePath="resources/hr1.4st"/>
